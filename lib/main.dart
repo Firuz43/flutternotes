@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'firebase_options.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -54,6 +56,7 @@ class _HomePageState extends State<HomePage> {
             controller: _email, // We are taking them from our textcontroller
             enableSuggestions: false,
             autocorrect: false,
+            keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration( // This is placeholder
               hintText: "Enter your email",
             ),
@@ -68,9 +71,12 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           TextButton(onPressed: () async {
+            await Firebase.initializeApp(
+              options: DefaultFirebaseOptions.currentPlatform,
+            );
             final email = _email.text;  // 3. Getting emai and password details on button
             final password = _password.text;
-            final UserCredential = FirebaseAuth.instance.createUserWithEmailAndPassword(
+            final UserCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
               email: email, 
               password: password  // 4. Authenticating it with firebase creating user
             ); 
