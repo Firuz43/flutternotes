@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  // 3. Then we will create dispose function that is given to us by statefulwidget
+  // 3. Then we will create dispose function that is given to us by statefulwidget //
   @override
   void dispose() {
     _email.dispose();
