@@ -56,7 +56,9 @@ class _HomePageState extends State<HomePage> {
           options: DefaultFirebaseOptions.currentPlatform,
         ),
         builder: (context, snapshot) {
-          return Column(
+          switch (snapshot.connectionState) {
+            case ConnectionState.done:
+              return Column(
           children: [
             TextField(
               controller: _email, // We are taking them from our textcontroller
@@ -88,7 +90,10 @@ class _HomePageState extends State<HomePage> {
             },child: const Text('Register'),
             ),
           ],
-        ); 
+        );
+            default:
+            return const Text('Loading...');
+          } 
         },
       ),
     );
