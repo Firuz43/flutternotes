@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               return Column(
           children: [
             TextField(
-              controller: _email, // We are taking them from our textcontroller
+              controller: _email, // We are taking them from our textcontroller//
               enableSuggestions: false,
               autocorrect: false,
               keyboardType: TextInputType.emailAddress,
