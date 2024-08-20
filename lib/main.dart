@@ -12,7 +12,7 @@ void main() {
         primaryColor: Colors.blue,
         
       ),
-      home: const HomePage(),
+      home: const RegisterView(),
     ),);
 }
 
