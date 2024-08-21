@@ -37,7 +37,7 @@ class _RegisterViewState extends State<RegisterView> {
     super.initState();
   }
 
-  // 3. Then we will create dispose function that is given to us by statefulwidget //
+  // 3. Then we will create dispose function that is given to us by statefulwidget ////
   @override
   void dispose() {
     _email.dispose();
@@ -47,7 +47,56 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: const Text('Registering'), //kind of navigation widget
+      backgroundColor: Colors.blue,
+      ),
+      body: FutureBuilder(
+        future: Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
+        ),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.done:
+              return Column(
+          children: [
+            TextField(
+              controller: _email, // We are taking them from our textcontroller//
+              enableSuggestions: false,
+              autocorrect: false,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration( // This is placeholder
+                hintText: "Enter your email",
+              ),
+            ),
+            TextField(
+              controller: _password,
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
+              decoration: const InputDecoration(
+                hintText: "Enter your password",
+              ),
+            ),
+            TextButton(onPressed: () async {
+              
+              final email = _email.text;  // 3. Getting emai and password details on button
+              final password = _password.text;
+              final UserCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                email: email, 
+                password: password  // 4. Authenticating it with firebase creating user
+              ); 
+              print(UserCredential);
+            },child: const Text('Register'),
+            ),
+          ],
+        );
+            default:
+            return const Text('Loading...');
+          } 
+        },
+      ),
+    );
   }
 }
 
