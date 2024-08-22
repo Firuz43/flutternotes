@@ -35,7 +35,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Registering'), //kind of navigation widget
+      appBar: AppBar(title: const Text('Login'), //kind of navigation widget
       backgroundColor: Colors.blue,
       ),
       body: FutureBuilder(
@@ -69,9 +69,9 @@ class _LoginViewState extends State<LoginView> {
               
               final email = _email.text;  // 3. Getting emai and password details on button
               final password = _password.text;
-              final UserCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+              final UserCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
                 email: email, 
-                password: password  // 4. Authenticating it with firebase creating user
+                password: password,  // 4. Authenticating it with firebase creating user
               ); 
               print(UserCredential);
             },child: const Text('Login'),

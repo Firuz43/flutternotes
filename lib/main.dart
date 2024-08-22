@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutternotes/views/login_views.dart';
 import 'firebase_options.dart';
 
 void main() {
@@ -10,9 +11,8 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: Colors.blue,
-        
       ),
-      home: const RegisterView(),
+      home: const LoginView(),
     ),);
 }
 
