@@ -69,11 +69,18 @@ class _LoginViewState extends State<LoginView> {
               
               final email = _email.text;  // 3. Getting emai and password details on button/
               final password = _password.text;
-              final UserCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                email: email, 
-                password: password,  // 4. Authenticating it with firebase creating user
-              ); 
-              print(UserCredential);
+              try {
+                final UserCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  email: email, 
+                  password: password,  // 4. Authenticating it with firebase creating user
+                ); 
+                print(UserCredential);
+              }catch(e) {
+                print("Something bad happened");
+                print(e.runtimeType);
+                print(e);
+              }
+
             },child: const Text('Login'),
             ),
           ],
