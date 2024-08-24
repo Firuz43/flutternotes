@@ -12,7 +12,7 @@ void main() {
         primarySwatch: Colors.blue,
         primaryColor: Colors.blue,
       ),
-      home: const LoginView(),
+      home: const RegisterView(),
     ),);
 }
 
@@ -82,11 +82,16 @@ class _RegisterViewState extends State<RegisterView> {
               
               final email = _email.text;  // 3. Getting emai and password details on button
               final password = _password.text;
-              final UserCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+              try {
+                final UserCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
                 email: email, 
                 password: password  // 4. Authenticating it with firebase creating user
               ); 
               print(UserCredential);
+              } on FirebaseAuthException catch (e) {
+                print(e.code);
+              }
+
             },child: const Text('Register'),
             ),
           ],
