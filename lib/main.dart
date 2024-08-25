@@ -89,7 +89,9 @@ class _RegisterViewState extends State<RegisterView> {
               ); 
               print(UserCredential);
               } on FirebaseAuthException catch (e) {
-                print(e.code);
+                if(e.code == 'weak-password') {
+                  print("Weak password");
+                }
               }
 
             },child: const Text('Register'),
