@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutternotes/views/login_views.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //This is tels flutter to kickstart our app before pressing button
@@ -9,10 +8,19 @@ void main() {
         primarySwatch: Colors.blue,
         primaryColor: Colors.blue,
       ),
-      home: const LoginView(),
+      home: const HomePage(),
     ),);
 }
 
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
 
 
 ////
