@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutternotes/firebase_options.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //This is tels flutter to kickstart our app before pressing button
@@ -19,8 +21,21 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Page'),
-        backgroundColor: Colors.blue,
+      appBar: AppBar(title: const Text('Home'), //kind of navigation widget
+      backgroundColor: Colors.blue,
+      ),
+      body: FutureBuilder(
+        future: Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
+        ),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.done:
+              return Text('done');
+            default:
+            return const Text('Loading...');
+          } 
+        },
       ),
     );
   }
