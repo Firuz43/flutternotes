@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                 print("You are verified");
                 return const Text('done');
               }else {
-                print("You need to verify your email first");
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => VerifyEmailView(),));
               }
               return Text('Done');
             default:
