@@ -67,6 +67,12 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
         title: const Text('Verify email'),
         backgroundColor: Colors.blue,
       ),
+      body: Column(children: [
+        const Text('Please verify your email address'),
+        TextButton(onPressed: () {
+
+        }, child: const Text('Send email verification'))
+      ],),
     );
   }
 }
