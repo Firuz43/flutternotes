@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutternotes/firebase_options.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -34,72 +32,54 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Login'), //kind of navigation widget
-      backgroundColor: Colors.blue,
-      ),
-      body: FutureBuilder(
-        future: Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
+  return Column(
+      children: [
+        TextField(
+          controller: _email, // We are taking them from our textcontroller//
+          enableSuggestions: false,
+          autocorrect: false,
+          keyboardType: TextInputType.emailAddress,
+          decoration: const InputDecoration( // This is placeholder
+            hintText: "Enter your email",
+          ),
         ),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              return Column(
-          children: [
-            TextField(
-              controller: _email, // We are taking them from our textcontroller//
-              enableSuggestions: false,
-              autocorrect: false,
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration( // This is placeholder
-                hintText: "Enter your email",
-              ),
-            ),
-            TextField(
-              controller: _password,
-              obscureText: true,
-              enableSuggestions: false,
-              autocorrect: false,
-              decoration: const InputDecoration(
-                hintText: "Enter your password",
-              ),
-            ),
-            TextButton(onPressed: () async {
-              
-              final email = _email.text;  // 3. Getting emai and password details on button/
-              final password = _password.text;
-              try {
-                final UserCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                  email: email, 
-                  password: password,  // 4. Authenticating it with firebase creating user
-                ); 
-                print(UserCredential);
-              } on FirebaseAuthException catch(e) {
-                if(e.code == 'invalid-credential') {
-                  print('user not found');
-                }else {
-                  print("Something else happened");
-                  print(e.code);
-                }
-              }
-              catch(e) {
-                print("Something bad happened");
-                print(e.runtimeType);
-                print(e);
-              }
+        TextField(
+          controller: _password,
+          obscureText: true,
+          enableSuggestions: false,
+          autocorrect: false,
+          decoration: const InputDecoration(
+            hintText: "Enter your password",
+          ),
+        ),
+        TextButton(onPressed: () async {
+          
+          final email = _email.text;  // 3. Getting emai and password details on button/
+          final password = _password.text;
+          try {
+            final UserCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+              email: email, 
+              password: password,  // 4. Authenticating it with firebase creating user
+            ); 
+            print(UserCredential);
+          } on FirebaseAuthException catch(e) {
+            if(e.code == 'invalid-credential') {
+              print('user not found');
+            }else {
+              print("Something else happened");
+              print(e.code);
+            }
+          }
+          catch(e) {
+            print("Something bad happened");
+            print(e.runtimeType);
+            print(e);
+          }
 
-            },child: const Text('Login'),
-            ),
-          ],
-        );
-            default:
-            return const Text('Loading...');
-          } 
-        },
-      ),
+        },child: const Text('Login'),
+        ),
+      ],
     );
   }
-
 }
 //
