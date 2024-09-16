@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternotes/firebase_options.dart';
 import 'package:flutternotes/views/login_views.dart';
+import 'package:flutternotes/views/register_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //This is tels flutter to kickstart our app before pressing button
@@ -13,6 +14,10 @@ void main() {
         primaryColor: Colors.blue,
       ),
       home: const HomePage(),
+      routes: {
+        '/login': (context) => const LoginView(),
+        '/register': (cotnext) => const RegisterView(),
+      },
     ),);
 }
 
