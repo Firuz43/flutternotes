@@ -31,49 +31,54 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextField(
-          controller: _email, // We are taking them from our textcontroller//
-          enableSuggestions: false,
-          autocorrect: false,
-          keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration( // This is placeholder
-            hintText: "Enter your email",
+    return Scaffold(
+      appBar: AppBar(title: const Text('RegisterView'),
+      backgroundColor: Colors.blue,
+      ),
+      body: Column(
+        children: [
+          TextField(
+            controller: _email, // We are taking them from our textcontroller//
+            enableSuggestions: false,
+            autocorrect: false,
+            keyboardType: TextInputType.emailAddress,
+            decoration: const InputDecoration( // This is placeholder
+              hintText: "Enter your email",
+            ),
           ),
-        ),
-        TextField(
-          controller: _password,
-          obscureText: true,
-          enableSuggestions: false,
-          autocorrect: false,
-          decoration: const InputDecoration(
-            hintText: "Enter your password",
+          TextField(
+            controller: _password,
+            obscureText: true,
+            enableSuggestions: false,
+            autocorrect: false,
+            decoration: const InputDecoration(
+              hintText: "Enter your password",
+            ),
           ),
-        ),
-        TextButton(onPressed: () async {
-          
-          final email = _email.text;  // 3. Getting emai and password details on button
-          final password = _password.text;
-          try {
-            final UserCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: email, 
-            password: password  // 4. Authenticating it with firebase creating user
-          ); 
-          print(UserCredential);
-          } on FirebaseAuthException catch (e) {
-            if(e.code == 'weak-password') {
-              print("Weak password");
-            }else if (e.code == 'email-already-in-use'){
-              print('Email is already in use');
-            }else if(e.code == 'invalid-email') {
-              print('invalid email entered');
+          TextButton(onPressed: () async {
+            
+            final email = _email.text;  // 3. Getting emai and password details on button
+            final password = _password.text;
+            try {
+              final UserCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+              email: email, 
+              password: password  // 4. Authenticating it with firebase creating user
+            ); 
+            print(UserCredential);
+            } on FirebaseAuthException catch (e) {
+              if(e.code == 'weak-password') {
+                print("Weak password");
+              }else if (e.code == 'email-already-in-use'){
+                print('Email is already in use');
+              }else if(e.code == 'invalid-email') {
+                print('invalid email entered');
+              }
             }
-          }
-
-        },child: const Text('Register'),
-        ),
-      ],
+      
+          },child: const Text('Register'),
+          ),
+        ],
+      ),
     );
   }
 }
