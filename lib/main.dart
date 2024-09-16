@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternotes/firebase_options.dart';
+import 'package:flutternotes/views/login_views.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //This is tels flutter to kickstart our app before pressing button
@@ -32,13 +33,7 @@ class HomePage extends StatelessWidget {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
-              final user = FirebaseAuth.instance.currentUser;
-              print(user);
-              if(user?.emailVerified ?? false) {
-                return const Text('Done');
-              }else {
-                return const VerifyEmailView();
-              }
+              return const LoginView();
             default:
             return const Text('Loading...');
           } 
