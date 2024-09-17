@@ -27,11 +27,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Home'), //kind of navigation widget//
-      backgroundColor: Colors.blue,
-      ),
-      body: FutureBuilder(
+    return FutureBuilder(
         future: Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
         ),
@@ -43,8 +39,7 @@ class HomePage extends StatelessWidget {
             return const Text('Loading...');
           } 
         },
-      ),
-    );
+      );
   }
 }
 
