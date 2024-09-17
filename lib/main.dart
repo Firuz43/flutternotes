@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutternotes/firebase_options.dart';
 import 'package:flutternotes/views/login_views.dart';
 import 'package:flutternotes/views/register_view.dart';
+import 'package:flutternotes/views/verify_email_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //This is tels flutter to kickstart our app before pressing button
@@ -34,7 +35,17 @@ class HomePage extends StatelessWidget {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
-              return const LoginView();
+              final user = FirebaseAuth.instance.currentUser;
+              if(user != null) {
+                if(user.emailVerified) {
+                  print('User is verified');
+                }else {
+                  return const VerifyEmailView();
+                }
+              }else {
+                return const LoginView();
+              }
+              return const Text('Done');
             default:
             return const CircularProgressIndicator();
           } 
