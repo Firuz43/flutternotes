@@ -38,14 +38,13 @@ class HomePage extends StatelessWidget {
               final user = FirebaseAuth.instance.currentUser;
               if(user != null) {
                 if(user.emailVerified) {
-                  print('User is verified');
+                  return const NotesView();
                 }else {
                   return const VerifyEmailView();
                 }
               }else {
                 return const LoginView();
               }
-              return const Text('Done');
             default:
             return const CircularProgressIndicator();
           } 
@@ -68,6 +67,7 @@ class _NotesViewState extends State<NotesView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Main UI'),
+        backgroundColor: Colors.blue, 
       ),
     );
   }
