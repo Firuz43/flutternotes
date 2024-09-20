@@ -67,6 +67,11 @@ class _NotesViewState extends State<NotesView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Main UI'),
+        actions: [
+          PopupMenuButton(onSelected: (value)  {
+            
+          },)
+        ],
         backgroundColor: Colors.blue, 
       ),
       body: const Text('Hello World'), ////
