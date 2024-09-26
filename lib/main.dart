@@ -20,7 +20,7 @@ void main() {///////
         '/login/': (context) => const LoginView(),
         '/register/': (cotnext) => const RegisterView(),
       },
-    ),);
+    ),);//
 }
 
 
