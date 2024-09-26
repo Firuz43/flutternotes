@@ -6,7 +6,7 @@ import 'package:flutternotes/views/login_views.dart';
 import 'package:flutternotes/views/register_view.dart';
 import 'package:flutternotes/views/verify_email_view.dart';
 import 'dart:developer' as devtools show log;
-
+///
 void main() {///////
   WidgetsFlutterBinding.ensureInitialized(); //This is tels flutter to kickstart our app before pressing button
   runApp(MaterialApp(
