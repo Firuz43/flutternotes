@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(/////
+    return FutureBuilder(/////////
         future: Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
         ),
