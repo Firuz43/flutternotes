@@ -63,7 +63,7 @@ class NotesView extends StatefulWidget {
 }
 
 enum MenuAction { logout }
-
+//
 class _NotesViewState extends State<NotesView> {
   @override
   Widget build(BuildContext context) {
