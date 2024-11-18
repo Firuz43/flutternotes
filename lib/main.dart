@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternotes/firebase_options.dart';
+import 'package:flutternotes/views/calculator.dart';
 import 'package:flutternotes/views/login_views.dart';
 import 'package:flutternotes/views/register_view.dart';
 import 'package:flutternotes/views/verify_email_view.dart';
@@ -75,86 +76,7 @@ class _NotesViewState extends State<NotesView> {
           ),
         backgroundColor: Colors.blue,
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 170,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  "0",
-                  style: TextStyle(fontSize: 30),
-                  )
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  height: 60,
-                  width: 60,
-                  child: Center(
-                    child: Text(
-                      "AC",
-                      style: TextStyle(fontSize: 24),
-                      )
-                    ),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    shape: BoxShape.circle
-                  ),
-                ),
-                Container(
-                  height: 60,
-                  width: 60, 
-                  child: Center(
-                    child: Text(
-                      "+/-",
-                      style: TextStyle(fontSize: 24),
-                      )
-                    ),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    shape: BoxShape.circle
-                  ),
-                ),
-                Container(
-                  height: 60,
-                  width: 60,
-                  child: Center(
-                    child: Text(
-                      "%",
-                      style: TextStyle(fontSize: 24),
-                      )
-                    ),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    shape: BoxShape.circle
-                  ),
-                ),
-                Container(
-                  height: 60,
-                  width: 60,
-                  child: Center(
-                    child: Text(
-                      "/",
-                      style: TextStyle(fontSize: 24),
-                      )
-                    ),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    shape: BoxShape.circle
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
+      body: Calculator(),
     );
   }
 }
