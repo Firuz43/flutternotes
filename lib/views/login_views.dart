@@ -24,7 +24,7 @@ class _LoginViewState extends State<LoginView> {
 
   // 3. Then we will create dispose function that is given to us by statefulwidget ////
   @override
-  void dispose() {
+  void dispose() {//
     _email.dispose();
     _password.dispose();
     super.dispose();
