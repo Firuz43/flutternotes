@@ -85,7 +85,7 @@ class _NotesViewState extends State<NotesView> {
         ],
         backgroundColor: Colors.blue, 
       ),
-      body: const Text('Hello World'), ////////////
+      body: const Text('Hello World'), ////////
     );
   }
 }
