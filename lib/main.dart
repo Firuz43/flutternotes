@@ -69,23 +69,17 @@ class _NotesViewState extends State<NotesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Main UI'),
-        actions: [
-          PopupMenuButton<MenuAction>(onSelected: (value)  {
-
-          }, itemBuilder: (context) {
-            return [
-              const PopupMenuItem<MenuAction>(
-                value: MenuAction.logout, 
-                child: Text('Log out'),
-              ),
-            ];
-
-          },)
-        ],
-        backgroundColor: Colors.blue, 
+        title: Text(
+          "THERE",
+          style: TextStyle(color: Colors.white),
+          ),
+        backgroundColor: Colors.blue,
       ),
-      body: const Text('Hello World'), ////////
+      body: Column(
+        children: [
+          
+        ],
+      ),
     );
   }
 }
