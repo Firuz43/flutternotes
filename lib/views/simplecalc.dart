@@ -50,6 +50,55 @@ class _SimplecalcState extends State<Simplecalc> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Calculator"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              controller: _num1Controller,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: "Enter First number",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: _num2Controller,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: "Enter Second number",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: _addNumbers, 
+                  child: Text("Add")
+                ),
+                ElevatedButton(
+                  onPressed: _subtractNumbers, 
+                  child: Text("Subtract"),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16,),
+            Text(
+              _result,
+              style: const TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
