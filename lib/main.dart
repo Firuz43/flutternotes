@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternotes/firebase_options.dart';
+import 'package:flutternotes/views/counter.dart';
 import 'package:flutternotes/views/login_views.dart';
 import 'package:flutternotes/views/register_view.dart';
 import 'package:flutternotes/views/verify_email_view.dart';
@@ -81,51 +82,62 @@ class _NotesViewState extends State<NotesView> {
 }
 
 ///
-class Counter extends StatefulWidget {
-  const Counter({super.key});
+// class Counter extends StatefulWidget {
+//   const Counter({super.key});
 
-  @override
-  State<Counter> createState() => _CounterState();
-}
+//   @override
+//   State<Counter> createState() => _CounterState();
+// }
 
-class _CounterState extends State<Counter> {
-  int _counter = 0;
+// class _CounterState extends State<Counter> {
+//   int _counter = 0;
 
-  void _increment() {
-    setState(() {
-      _counter++;
-    });
-  }
 
-  void _decrement() {
-    setState(() {
-      _counter--;
-    });
-  }
+//   void _increment() {
+//     setState(() {
+//       _counter++;
+//     });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Counter App"),
-        backgroundColor: Colors.blue,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Count: $_counter", style: const TextStyle(fontSize: 24)), const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(onPressed: _increment, child: const Text("Increment")),
-                const SizedBox(width: 10),
-                ElevatedButton(onPressed: _decrement, child: const Text("Decrement"))
-              ],
-            )
-          ],
-        ),
-      ),
-    );
-  }
-} 
+//   void _decrement() {
+//     setState(() {
+//       _counter--;
+//     });
+//   }
+
+//   void _sum() {
+//     setState(() {
+//       _counter = _counter + 2;
+//     });
+//   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       title: const Text("Counter App"),
+  //       backgroundColor: Colors.blue,
+  //     ),
+  //     body: const Counter(),
+
+      // body: Center(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: [
+      //       Text("Count: $_counter", style: const TextStyle(fontSize: 24)), const SizedBox(height: 20),
+      //       Row(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           ElevatedButton(onPressed: _increment, child: const Text("Increment")),
+      //           const SizedBox(width: 10),
+      //           ElevatedButton(onPressed: _decrement, child: const Text("Decrement")),
+
+      //           ElevatedButton(onPressed: _sum, child: const Text("Sum")),
+      //         ],
+      //       )
+      //     ],
+      //   ),
+      // ),
+//     );
+//   }
+// } 
