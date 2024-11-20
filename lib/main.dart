@@ -6,6 +6,7 @@ import 'package:flutternotes/views/calculator.dart';
 import 'package:flutternotes/views/counter.dart';
 import 'package:flutternotes/views/login_views.dart';
 import 'package:flutternotes/views/register_view.dart';
+import 'package:flutternotes/views/simple_calculator.dart';
 import 'package:flutternotes/views/simplecalc.dart';
 import 'package:flutternotes/views/verify_email_view.dart';
 import 'dart:developer' as devtools show log;
@@ -79,7 +80,8 @@ class _NotesViewState extends State<NotesView> {
         backgroundColor: Colors.blue,
       ),
       // body: Counter(),
-      body: Simplecalc(),
+      // body: Simplecalc(),
+      body: SimpleCalculator(),
     );
   }
 }
