@@ -30,7 +30,7 @@ class _CounterState extends State<Counter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Counter"),
+        title: Text("Counter"),//
         backgroundColor: Colors.blue,
       ),
       body: Center(
