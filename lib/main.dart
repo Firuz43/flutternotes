@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternotes/firebase_options.dart';
+import 'package:flutternotes/views/bmi_calc.dart';
 import 'package:flutternotes/views/calculator.dart';
 import 'package:flutternotes/views/counter.dart';
 import 'package:flutternotes/views/login_views.dart';
@@ -81,7 +82,8 @@ class _NotesViewState extends State<NotesView> {
       ),
       // body: Counter(),
       // body: Simplecalc(),
-      body: SimpleCalculator(),
+      // body: SimpleCalculator(),
+      body: BmiCalc(),
     );
   }
 }

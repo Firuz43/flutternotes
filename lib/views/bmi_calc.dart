@@ -34,6 +34,38 @@ class _BmiCalcState extends State<BmiCalc> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("BMI calculator"),
+        backgroundColor: Colors.blue,
+      ),
+
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            TextField(
+              controller: _wieghtController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: "Enter first number",
+                border: OutlineInputBorder()
+              ),
+            ),
+
+            const SizedBox(height: 14),
+
+            TextField(
+              controller: _heightController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: "Enter second number",
+                border: OutlineInputBorder()
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
