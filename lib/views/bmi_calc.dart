@@ -23,7 +23,7 @@ class _BmiCalcState extends State<BmiCalc> {
       final double hight = double.tryParse(num2Text) ?? 0;
 
       setState(() {
-        _result = "Result is: ${weigh / hight}";
+        _result = "The BMI is: ${weigh / hight}";
       });
     }else {
       _result = "Please enter valid numbers";
@@ -48,7 +48,7 @@ class _BmiCalcState extends State<BmiCalc> {
               controller: _wieghtController,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
-                labelText: "Enter first number",
+                labelText: "Enter weigh",
                 border: OutlineInputBorder()
               ),
             ),
@@ -59,9 +59,21 @@ class _BmiCalcState extends State<BmiCalc> {
               controller: _heightController,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
-                labelText: "Enter second number",
+                labelText: "Enter height",
                 border: OutlineInputBorder()
               ),
+            ),
+            ElevatedButton(
+              onPressed: calculateBmi, 
+              child: Text("BMI"),
+            ),
+
+            const SizedBox(height: 16),
+
+            Text(
+              "The BMI Is: $_result",
+              style: const TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
             )
           ],
         ),
