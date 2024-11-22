@@ -74,13 +74,6 @@ class _NotesViewState extends State<NotesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "THERE",
-          style: TextStyle(color: Colors.white),
-          ),
-        backgroundColor: Colors.blue,
-      ),
       // body: Counter(),
       // body: Simplecalc(),
       // body: SimpleCalculator(),
