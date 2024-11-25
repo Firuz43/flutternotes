@@ -100,8 +100,7 @@ class _StopWatchState extends State<StopWatchApp> {
                   child: const Text("Reset")
                 ),
               ],
-            )
-
+            ),
           ],
         ),
       ),
