@@ -42,7 +42,7 @@ class _StopWatchState extends State<StopWatchApp> {
     _timer.cancel(); // Pause updates
   }
 
-  void resetStopWatch() {
+  void _resetStopWatch() {
     _stopWatch.reset();
     setState(() {
       _formattedTime = _formatTime(0);
@@ -91,9 +91,14 @@ class _StopWatchState extends State<StopWatchApp> {
                 ),
                 const SizedBox(width: 10),
                 ElevatedButton(
-                  onPressed: _stopWatch.isRunning ? null : _stopStopWatch, 
+                  onPressed: _stopWatch.isRunning ? _stopStopWatch : null, 
                   child: const Text("Stop")
-                )
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: _resetStopWatch, 
+                  child: const Text("Reset")
+                ),
               ],
             )
 
