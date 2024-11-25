@@ -73,6 +73,33 @@ class _StopWatchState extends State<StopWatchApp> {
         ),
         backgroundColor: Colors.blue,
       ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              _formattedTime,
+              style: const TextStyle(fontSize: 48, fontWeight: FontWeight.normal),
+            ),
+            const SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: _stopWatch.isRunning ? null : _startStopWatch, 
+                  child: const Text("Start"),
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: _stopWatch.isRunning ? null : _stopStopWatch, 
+                  child: const Text("Stop")
+                )
+              ],
+            )
+
+          ],
+        ),
+      ),
     );
   }
 }
