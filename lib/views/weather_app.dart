@@ -14,7 +14,7 @@ class _WeatherAppState extends State<WeatherApp> {
   String _weatherInfo = "Enter a city to get weather details";
   bool _isLoading = false;
 
-  final String _apiKey = "YOUR_API_KEY"; //Replace with your OpenWeatherMap API key
+  final String _apiKey = "YOUR_API_KEY"; //Replace with your OpenWeatherMap API key//
   final String _baseUrl = "https://api.openweathermap.org/data/2.5/weather";
 
   Future<void> _fetchWeather(String city) async {
