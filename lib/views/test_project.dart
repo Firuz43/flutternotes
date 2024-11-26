@@ -13,23 +13,34 @@ class _TestProjectState extends State<TestProject> {
   final TextEditingController _number1 = TextEditingController();
   final TextEditingController _number2 = TextEditingController();
 
-  String result = "";
+  String _result = "";
+  String _sumRestult = "";
   
 
 
-void addNumbers() {
+void _addNumbers() {
   final String number1Text = _number1.text;
   final String number2Text = _number2.text;
 
   if(number1Text.isNotEmpty && number2Text.isNotEmpty) {
     final double number1 = double.tryParse(number1Text) ?? 0;
     final double number2 = double.tryParse(number2Text) ?? 0;
+
+    setState(() {
+      _sumRestult = "${number1 + number2}";
+    });
+  }else {
+    setState(() {
+      _sumRestult = "Please enter Valid numbers";
+    });
   }
+
+
 }
 
   void _checkString() {
     setState(() {
-      result = _text.text;
+      _result = _text.text;
     });
   }
 
@@ -61,10 +72,11 @@ void addNumbers() {
               child: Text("PRESS")
             ),
             Text(
-              result,
+              _result,
             ),
             SizedBox(height: 20,),
             TextField(
+              controller: _number1,
               decoration: const InputDecoration(
                 border: OutlineInputBorder()
               ),
@@ -72,10 +84,21 @@ void addNumbers() {
 
             const SizedBox(height: 15),
 
-            TextField(  
+            TextField(
+              controller: _number2,  
               decoration: const InputDecoration(
                 border: OutlineInputBorder()
               ),
+            ),
+            ElevatedButton(
+              onPressed: _addNumbers, 
+              child: Text("SUM"),
+            ),
+
+            SizedBox(height: 10),
+
+            Text(
+              _sumRestult,
             )
           ],
         ),
