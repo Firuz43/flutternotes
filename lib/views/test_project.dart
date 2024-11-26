@@ -14,11 +14,13 @@ class _TestProjectState extends State<TestProject> {
 
 
   void _checkString() {
-    if(result == "Firuz") {
-      result = "Welcome Firuz !";
-    }else {
-      result = "Please try again";
-    }
+    setState(() {
+      if(result == "Firuz") {
+        result = "Welcome Firuz !";
+      }else {
+        result = "Please try again";
+      }
+    });
   }
 
 
