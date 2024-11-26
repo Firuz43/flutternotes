@@ -10,6 +10,7 @@ import 'package:flutternotes/views/register_view.dart';
 import 'package:flutternotes/views/simple_calculator.dart';
 import 'package:flutternotes/views/simplecalc.dart';
 import 'package:flutternotes/views/stop_watch.dart';
+import 'package:flutternotes/views/test_project.dart';
 import 'package:flutternotes/views/todo_list.dart';
 import 'package:flutternotes/views/verify_email_view.dart';
 import 'dart:developer' as devtools show log;
@@ -80,7 +81,8 @@ class _NotesViewState extends State<NotesView> {
       // body: SimpleCalculator(),
       // body: BmiCalc(),
       // body: TodoList(),
-      body: StopWatchApp(),
+      // body: StopWatchApp(),
+      body: TestProject(),
     );
   }
 }

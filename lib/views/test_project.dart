@@ -9,9 +9,48 @@ class TestProject extends StatefulWidget {
 
 class _TestProjectState extends State<TestProject> {
   final TextEditingController text = TextEditingController();
+  String result = "";
+  
+
+
+  void _checkString() {
+    if(result == "Firuz") {
+      result = "Welcome Firuz !";
+    }else {
+      result = "Please try again";
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Controller",
+          style: TextStyle(color: Colors.white),
+          ),
+        backgroundColor: Colors.blue,
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16),
+        color: Colors.yellow,
+        child: Column(
+          
+          children: [
+            TextField(
+              controller: text,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder()
+              ),
+            ),
+            ElevatedButton(
+              onPressed: _checkString, 
+              child: Text("PRESS")
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
