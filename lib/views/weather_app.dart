@@ -22,9 +22,9 @@ class _WeatherAppState extends State<WeatherApp> {
       _isLoading = true;
       _weatherInfo = "Fetching weather data...";
     });
-    try {
-      final response = await http.get(Uri.parse("$_baseUrl?q=$city&appid=$_apiKey&units=metric"));
-    }
+    // try {
+    //   final response = await http.get(Uri.parse("$_baseUrl?q=$city&appid=$_apiKey&units=metric"));
+    // }
   }
 
   @override
