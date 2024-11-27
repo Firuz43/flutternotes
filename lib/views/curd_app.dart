@@ -51,7 +51,8 @@ class _CurdAppState extends State<CurdApp> {
                   Navigator.of(context).pop(); // to close the Dialog
                 }
               }, 
-              child: child)
+              child: Text("Save")
+            )
           ],
         )
       );
@@ -59,6 +60,10 @@ class _CurdAppState extends State<CurdApp> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("CRUD App"),
+      ),
+    );
   }
 }
