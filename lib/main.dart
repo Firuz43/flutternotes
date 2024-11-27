@@ -5,6 +5,7 @@ import 'package:flutternotes/firebase_options.dart';
 import 'package:flutternotes/views/bmi_calc.dart';
 import 'package:flutternotes/views/calculator.dart';
 import 'package:flutternotes/views/counter.dart';
+import 'package:flutternotes/views/curd_app.dart';
 import 'package:flutternotes/views/login_views.dart';
 import 'package:flutternotes/views/register_view.dart';
 import 'package:flutternotes/views/simple_calculator.dart';
@@ -82,7 +83,8 @@ class _NotesViewState extends State<NotesView> {
       // body: BmiCalc(),
       // body: TodoList(),
       // body: StopWatchApp(),
-      body: TestProject(),
+      // body: TestProject(),
+      body: CurdApp(),
     );
   }
 }
