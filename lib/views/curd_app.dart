@@ -90,6 +90,31 @@ class _CurdAppState extends State<CurdApp> {
                   child: Text("Add")
                 )
               ],
+            ),
+            SizedBox(height: 16),
+            //List Section
+            Expanded(
+              child: items.isEmpty ? Center(child: Text("No items added yet")) : ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (context, index) => Card(
+                  child: ListTile(
+                    title: Text(items[index]),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          onPressed: () => showEditDialog(index), 
+                          icon: Icon(Icons.edit, color: Colors.blue)
+                        ),
+                        IconButton(
+                          onPressed: () => deleteItem(index), 
+                          icon: Icon(Icons.delete, color: Colors.red)
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )
             )
           ],
         ),
