@@ -7,6 +7,7 @@ import 'package:flutternotes/views/calculator.dart';
 import 'package:flutternotes/views/counter.dart';
 import 'package:flutternotes/views/curd_app.dart';
 import 'package:flutternotes/views/login_views.dart';
+import 'package:flutternotes/views/practice.dart';
 import 'package:flutternotes/views/register_view.dart';
 import 'package:flutternotes/views/simple_calculator.dart';
 import 'package:flutternotes/views/simplecalc.dart';
@@ -84,7 +85,8 @@ class _NotesViewState extends State<NotesView> {
       // body: TodoList(),
       // body: StopWatchApp(),
       // body: TestProject(),
-      body: CurdApp(),
+      // body: CurdApp(),
+      body: Practice(),
     );
   }
 }
