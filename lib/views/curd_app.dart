@@ -62,7 +62,37 @@ class _CurdAppState extends State<CurdApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("CRUD App"),
+        title: Text(
+          "CRUD App",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            //Input Section
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: inputController,
+                    decoration: const InputDecoration(
+                      hintText: "Enter item", 
+                      border: OutlineInputBorder()
+                    ), 
+                  ),
+                ),
+                SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: addItem, 
+                  child: Text("Add")
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
