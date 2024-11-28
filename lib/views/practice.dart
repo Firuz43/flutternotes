@@ -43,8 +43,20 @@ class _PracticeState extends State<Practice> {
       builder: (context) => AlertDialog(
         title: Text("Edit item"),
         content: TextField(
-          
+          controller: editController,
+          decoration: InputDecoration(hintText: "Enter New Value"),
         ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              if(editController.text.isNotEmpty) {
+                editItem(index, editController.text);
+                Navigator.of(context).pop();
+              }
+            }, 
+            child: Text("Save")
+          ),
+        ],
       )
     );
   }
@@ -89,7 +101,10 @@ class _PracticeState extends State<Practice> {
                         onPressed: () => deleteItem(index), 
                         icon: Icon(Icons.delete, color: Colors.red,)
                       ),
-                      Icon(Icons.edit)
+                      IconButton(
+                        onPressed: () => showEditDialog(index), 
+                        icon: Icon(Icons.edit, color: Colors.blue,)
+                      )
                     ],
                   ),
                 )
