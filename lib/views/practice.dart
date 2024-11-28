@@ -29,6 +29,28 @@ class _PracticeState extends State<Practice> {
     });
   }
 
+
+  void editItem(int index, String newValue) {
+    setState(() {
+      items[index] = newValue;
+    });
+  }
+
+  void showEditDialog(int index) {
+    TextEditingController editController = TextEditingController(text: items[index]);
+    showDialog(
+      context: context, 
+      builder: (context) => AlertDialog(
+        title: Text("Edit item"),
+        content: TextField(
+          
+        ),
+      )
+    );
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
