@@ -8,57 +8,19 @@ class Practice extends StatefulWidget {
 }
 
 class _PracticeState extends State<Practice> {
+  String restult = "";
+
   final List<String> items = [];
 
   final TextEditingController inputController = TextEditingController();
 
 
-  //adding string to item list functionality;
   void addItem() {
-   if(inputController.text.isNotEmpty) {
-    setState(() {
-      items.add(inputController.text);
-    });
-    inputController.clear();
-   }
-  }
-
-  void deleteItem(int index) {
-    setState(() {
-      items.removeAt(index);
-    });
-  }
-
-
-  void editItem(int index, String newValue) {
-    setState(() {
-      items[index] = newValue;
-    });
-  }
-
-  void showEditDialog(int index) {
-    TextEditingController editController = TextEditingController(text: items[index]);
-    showDialog(
-      context: context, 
-      builder: (context) => AlertDialog(
-        title: Text("Edit item"),
-        content: TextField(
-          controller: editController,
-          decoration: InputDecoration(hintText: "Enter New Value"),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              if(editController.text.isNotEmpty) {
-                editItem(index, editController.text);
-                Navigator.of(context).pop();
-              }
-            }, 
-            child: Text("Save")
-          ),
-        ],
-      )
-    );
+    if(inputController.text.isNotEmpty) {
+      setState(() {
+        restult = inputController.text;
+      });
+    }
   }
 
 
@@ -83,32 +45,12 @@ class _PracticeState extends State<Practice> {
                 border: OutlineInputBorder()
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                addItem();
-              },
-               child: Text("ADD")
+            Text(
+              restult
             ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: items.length,
-                itemBuilder: (context, index) => ListTile(
-                  title: Text(items[index]),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () => deleteItem(index), 
-                        icon: Icon(Icons.delete, color: Colors.red,)
-                      ),
-                      IconButton(
-                        onPressed: () => showEditDialog(index), 
-                        icon: Icon(Icons.edit, color: Colors.blue,)
-                      )
-                    ],
-                  ),
-                )
-              ),
+            ElevatedButton(
+              onPressed: addItem, 
+              child: Text("ADD")
             )
           ],
         ),
