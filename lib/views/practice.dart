@@ -18,9 +18,15 @@ class _PracticeState extends State<Practice> {
   void addItem() {
     if(inputController.text.isNotEmpty) {
       setState(() {
-        restult = inputController.text;
+        items.add(inputController.text);
       });
     }
+  }
+
+  void deleteItem(int index) {
+    setState(() {
+      items.removeAt(index);
+    });
   }
 
 
@@ -45,12 +51,31 @@ class _PracticeState extends State<Practice> {
                 border: OutlineInputBorder()
               ),
             ),
-            Text(
-              restult
-            ),
             ElevatedButton(
               onPressed: addItem, 
-              child: Text("ADD")
+              child: Text("Add")
+            ),
+            Expanded(
+              child: items.isEmpty ?  Center(child: Text("No items added yet")) : ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (context, index) => Card(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 2, 5, 2),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(items[index]),
+                            IconButton(
+                              onPressed: () => deleteItem(index), 
+                              icon: Icon(Icons.delete, color: Colors.red,))
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ))
             )
           ],
         ),
