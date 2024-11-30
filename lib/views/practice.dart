@@ -29,6 +29,29 @@ class _PracticeState extends State<Practice> {
     });
   }
 
+  void showEditDialog(int index) {
+    TextEditingController editingController = TextEditingController(text: items[index]);
+    showDialog(
+      context: context, 
+      builder: (context) => AlertDialog(
+        title: Text(
+          "Edit Item"
+        ),
+        content: TextField(
+          controller: editingController,
+          decoration: InputDecoration(hintText: "Enter new Vaklue"),
+        ),
+      )
+    );
+
+  }
+
+  void editItem(int index, String newValue) {
+    setState(() {
+      items[index] = newValue;
+    });
+  }
+
 
 
   @override
