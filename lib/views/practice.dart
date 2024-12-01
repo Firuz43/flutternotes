@@ -41,6 +41,17 @@ class _PracticeState extends State<Practice> {
           controller: editingController,
           decoration: InputDecoration(hintText: "Enter new Vaklue"),
         ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              if(editingController.text.isNotEmpty) {
+                editItem(index, editingController.text);
+                Navigator.of(context).pop();
+              }
+            }, 
+            child: Text("Save"),
+          )
+        ],
       )
     );
 
@@ -91,8 +102,13 @@ class _PracticeState extends State<Practice> {
                           children: [
                             Text(items[index]),
                             IconButton(
+                              onPressed: () => showEditDialog(index), 
+                              icon: Icon(Icons.edit, color: Colors.yellow)
+                            ),
+                            IconButton(
                               onPressed: () => deleteItem(index), 
-                              icon: Icon(Icons.delete, color: Colors.red,))
+                              icon: Icon(Icons.delete, color: Colors.red,)
+                            ),                         
                           ],
                         ),
                       )

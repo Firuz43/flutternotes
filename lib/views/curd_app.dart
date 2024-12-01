@@ -26,6 +26,8 @@ class _CurdAppState extends State<CurdApp> {
     });
   }
 
+
+
   void deleteItem(int index) {
     setState(() {
       items.removeAt(index);
