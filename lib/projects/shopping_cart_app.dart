@@ -47,7 +47,52 @@ class _ShoppingCartAppState extends State<ShoppingCartApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Shopping Cart"),
+        title: Text("Shopping Cart", style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.blue,
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                final product = products[index];
+                return ListTile(
+                  title: Text(product.name),
+                  subtitle: Text("\$${product.price.toStringAsFixed(2)}"),
+                  trailing: IconButton(
+                    onPressed: () => addToCart(product), 
+                    icon: Icon(Icons.add_shopping_cart)
+                  ),
+                );
+              }
+            )
+          ),
+          Divider(),
+          Text(
+            "Shopping Cart",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: cart.length,
+              itemBuilder: (context, index) {
+                final CartItem = cart[index];
+                return ListTile(
+                  title: Text("${CartItem.product.name} (x${CartItem.quantity})"),
+                );
+              }
+            )
+          ),
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text(
+              "Total: \$${calculateTotal().toStringAsFixed(2)}",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
       ),
     );
   }
