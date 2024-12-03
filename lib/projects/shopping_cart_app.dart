@@ -23,7 +23,7 @@ class _ShoppingCartAppState extends State<ShoppingCartApp> {
 
   void addToCart(Product product) {
     setState(() {
-      final index = cart.indexWhere((item) => item.product.name == product.name);
+      final index = cart.indexWhere((item) => item.product.name == product.name); // returns index if found or -1 if not found
       if(index != -1) {
         cart[index].quantity++;
       }else {
@@ -62,7 +62,7 @@ class _ShoppingCartAppState extends State<ShoppingCartApp> {
                   subtitle: Text("\$${product.price.toStringAsFixed(2)}"),
                   trailing: IconButton(
                     onPressed: () => addToCart(product), 
-                    icon: Icon(Icons.add_shopping_cart)
+                    icon: Icon(Icons.add_shopping_cart, color: Colors.green,)
                   ),
                 );
               }
@@ -77,9 +77,16 @@ class _ShoppingCartAppState extends State<ShoppingCartApp> {
             child: ListView.builder(
               itemCount: cart.length,
               itemBuilder: (context, index) {
-                final CartItem = cart[index];
+                final cartItem = cart[index];
                 return ListTile(
-                  title: Text("${CartItem.product.name} (x${CartItem.quantity})"),
+                  title: Text("${cartItem.product.name} (x${cartItem.quantity})"),
+                  subtitle: Text(
+                    "\$${(cartItem.product.price * cartItem.quantity).toStringAsFixed(2)}"
+                  ),
+                  trailing: IconButton(
+                    onPressed: () => removeFromCart(cartItem), 
+                    icon: Icon(Icons.delete, color: Colors.red,),
+                  ),
                 );
               }
             )
