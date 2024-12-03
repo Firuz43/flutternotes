@@ -19,6 +19,31 @@ class _ShoppingPracticeState extends State<ShoppingPractice> {
       Product("Airpods", 22.3)
     ];
 
+    // shopping cart
+    final List<CartItem> cart = [];
+
+
+    void addToCart(Product product) {
+      setState(() {
+        final index = cart.indexWhere((test) => test.product.name == product.name);
+
+        if(index != -1) {
+          cart[index].quantity++;
+        }else {
+          cart.add(CartItem(product, 1));
+        }
+      });
+    }
+
+    void removeFromCart(CartItem cartItem) {
+      setState(() {
+        cart.remove(cartItem);
+      });
+    }
+
+    double calculateTotal() {
+      return cart.fold(0.0, (sum, item) => sum + item.product.price * item.quantity);
+    }
 
     return const Placeholder();
   }
