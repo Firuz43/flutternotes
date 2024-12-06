@@ -97,6 +97,7 @@ class _ShoppingCartAppState extends State<ShoppingCartApp> {
             child: Text(
               "Total: \$${calculateTotal().toStringAsFixed(2)}",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              
             ),
           )
         ],
