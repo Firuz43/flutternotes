@@ -5,6 +5,7 @@ import 'package:flutternotes/firebase_options.dart';
 import 'package:flutternotes/projects/shopping_cart_app.dart';
 import 'package:flutternotes/projects/shopping_practice.dart';
 import 'package:flutternotes/projects/test.dart';
+import 'package:flutternotes/projects/testing.dart';
 import 'package:flutternotes/views/bmi_calc.dart';
 import 'package:flutternotes/views/calculator.dart';
 import 'package:flutternotes/views/counter.dart';
@@ -92,7 +93,8 @@ class _NotesViewState extends State<NotesView> {
       // body: Practice(),
       // body: ShoppingCartApp(),
       // body: ShoppingPractice(),
-      body: Test(),
+      // body: Test(),
+      body: Testing(),
     );
   }
 }

@@ -60,8 +60,9 @@ class _TestState extends State<Test> {
               child: const Text("Add"),
             ),
             SizedBox(height: 16),
-            TextField(),
             
+            TextField(),
+
             Expanded(
               child: ListView.builder(
                 itemCount: names.length,
