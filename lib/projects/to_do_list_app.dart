@@ -8,6 +8,10 @@ class ToDoListApp extends StatefulWidget {
 }
 
 class _ToDoListAppState extends State<ToDoListApp> {
+
+  //List to store tasks
+  final List<Map<String, dynamic>> tasks = []; // each task is map with 'title' and 'isCompleted
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +19,7 @@ class _ToDoListAppState extends State<ToDoListApp> {
         title: Text(
           "To do list",
           style: TextStyle(color: Colors.white),
-          ),
+        ),
         backgroundColor: Colors.blue,
       ),
     );
