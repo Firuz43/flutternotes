@@ -25,6 +25,20 @@ class _ToDoListAppState extends State<ToDoListApp> {
     }
   }
 
+  //function to toggle comletetion status of a task
+  void toggleTask(int index) {
+    setState(() {
+      tasks[index]['isCompleted'] = !tasks[index]['isCompleted'];
+    });
+  }
+
+  //function delete a task
+  void deleteTask(int index) {
+    setState(() {
+      tasks.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
