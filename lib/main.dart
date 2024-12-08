@@ -19,7 +19,7 @@ import 'package:flutternotes/views/simplecalc.dart';
 import 'package:flutternotes/views/stop_watch.dart';
 import 'package:flutternotes/views/test_project.dart';
 import 'package:flutternotes/views/todo_list.dart';
-import 'package:flutternotes/views/verify_email_view.dart';
+import 'package:flutternotes/views/verify_email_view.dart';//
 import 'dart:developer' as devtools show log;
 ///
 void main() {//////
