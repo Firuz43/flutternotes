@@ -2,23 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternotes/firebase_options.dart';
-import 'package:flutternotes/projects/shopping_cart_app.dart';
-import 'package:flutternotes/projects/shopping_practice.dart';
-import 'package:flutternotes/projects/test.dart';
-import 'package:flutternotes/projects/testing.dart';
 import 'package:flutternotes/projects/to_do_list_app.dart';
-import 'package:flutternotes/views/bmi_calc.dart';
-import 'package:flutternotes/views/calculator.dart';
-import 'package:flutternotes/views/counter.dart';
-import 'package:flutternotes/views/curd_app.dart';
 import 'package:flutternotes/views/login_views.dart';
-import 'package:flutternotes/views/practice.dart';
 import 'package:flutternotes/views/register_view.dart';
-import 'package:flutternotes/views/simple_calculator.dart';
-import 'package:flutternotes/views/simplecalc.dart';
-import 'package:flutternotes/views/stop_watch.dart';
-import 'package:flutternotes/views/test_project.dart';
-import 'package:flutternotes/views/todo_list.dart';
 import 'package:flutternotes/views/verify_email_view.dart';//
 import 'dart:developer' as devtools show log;
 ///
