@@ -10,11 +10,12 @@ import 'dart:developer' as devtools show log;
 ///
 void main() {/////////
   WidgetsFlutterBinding.ensureInitialized(); //This is tels flutter to kickstart our app before pressing button
-  runApp(MaterialApp(
+  runApp(MaterialApp(//
+  
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,///
-        primaryColor: Colors.blue,//
+        primaryColor: Colors.blue,////
       ),
       home: const HomePage(),
       routes: {
