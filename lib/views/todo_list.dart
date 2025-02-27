@@ -16,7 +16,7 @@ class _TodoListState extends State<TodoList> {
       setState(() {
         _tasks.add({'name': taskName, 'isCompleted': false});
       });
-      _taskController.clear(); // clear input field
+      _taskController.clear(); // clear input field//
     }
   }
 

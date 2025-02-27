@@ -5,6 +5,7 @@ import 'package:flutternotes/firebase_options.dart';
 import 'package:flutternotes/projects/to_do_list_app.dart';
 import 'package:flutternotes/views/login_views.dart';
 import 'package:flutternotes/views/register_view.dart';
+import 'package:flutternotes/views/todo_list.dart';
 import 'package:flutternotes/views/verify_email_view.dart';//
 ///
 void main() {/////////
@@ -73,7 +74,7 @@ class _NotesViewState extends State<NotesView> {
       // body: Simplecalc(),
       // body: SimpleCalculator(),
       // body: BmiCalc(),
-      // body: TodoList(),
+      body: TodoList(),
       // body: StopWatchApp(),
       // body: TestProject(),
       // body: CurdApp(),
@@ -82,7 +83,7 @@ class _NotesViewState extends State<NotesView> {
       // body: ShoppingPractice(),
       // body: Test(),
       // body: Testing(),
-      body: ToDoListApp(),
+      // body: ToDoListApp(),
     );
   }
 }
