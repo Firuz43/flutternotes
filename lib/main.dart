@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternotes/firebase_options.dart';
 import 'package:flutternotes/projects/to_do_list_app.dart';
+import 'package:flutternotes/views/curd_app.dart';
 import 'package:flutternotes/views/login_views.dart';
 import 'package:flutternotes/views/register_view.dart';
 import 'package:flutternotes/views/todo_list.dart';
@@ -74,10 +75,10 @@ class _NotesViewState extends State<NotesView> {
       // body: Simplecalc(),
       // body: SimpleCalculator(),
       // body: BmiCalc(),
-      body: TodoList(),
+      // body: TodoList(),
       // body: StopWatchApp(),
       // body: TestProject(),
-      // body: CurdApp(),
+      body: CurdApp(),
       // body: Practice(),
       // body: ShoppingCartApp(),
       // body: ShoppingPractice(),
