@@ -34,6 +34,46 @@ class _CurdAppState extends State<CurdApp> {
       });
     }
 
-    return const Placeholder();
+    void showEditDialog(int index) {
+      TextEditingController editController =
+          TextEditingController(text: items[index]);
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("Edit Item"),
+          content: TextField(
+            controller: editController,
+            decoration: InputDecoration(hintText: "Enter new value"),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close dialog
+              },
+              child: Text("Cancel"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (editController.text.isNotEmpty) {
+                  editItem(index, editController.text);
+                  Navigator.of(context).pop(); //Close dialog
+                }
+              },
+              child: Text("Save"),
+            )
+          ],
+        ),
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "CRUD APP",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue,
+      ),
+    );
   }
 }

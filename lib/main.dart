@@ -7,24 +7,33 @@ import 'package:flutternotes/views/curd_app.dart';
 import 'package:flutternotes/views/login_views.dart';
 import 'package:flutternotes/views/register_view.dart';
 import 'package:flutternotes/views/todo_list.dart';
-import 'package:flutternotes/views/verify_email_view.dart';//
+import 'package:flutternotes/views/verify_email_view.dart'; //
+
 ///
-void main() {/////////
-  WidgetsFlutterBinding.ensureInitialized(); //This is tels flutter to kickstart our app before pressing button
-  runApp(MaterialApp(////
-  
+void main() {
+  /////////
+  WidgetsFlutterBinding
+      .ensureInitialized(); //This is tels flutter to kickstart our app before pressing button
+  runApp(
+    MaterialApp(
+      ////
+
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,/////
-        primaryColor: Colors.blue,/////
+        primarySwatch: Colors.blue, /////
+        primaryColor: Colors.blue, /////
       ),
       home: const HomePage(),
       routes: {
         '/login/': (context) => const LoginView(),
-        '/register/': (cotnext) => const RegisterView(),/// the routes
+        '/register/': (cotnext) => const RegisterView(),
+
+        /// the routes
       },
-    ),);//
+    ),
+  ); //
 }
+
 ///
 
 class HomePage extends StatelessWidget {
@@ -32,31 +41,31 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(/////////
-        future: Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
-        ),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              final user = FirebaseAuth.instance.currentUser;
-              if(user != null) {
-                if(user.emailVerified) {
-                  return const NotesView();
-                }else {
-                  return const VerifyEmailView();
-                }
-              }else {
-                return const LoginView();
+    return FutureBuilder(
+      /////////
+      future: Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      ),
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.done:
+            final user = FirebaseAuth.instance.currentUser;
+            if (user != null) {
+              if (user.emailVerified) {
+                return const NotesView();
+              } else {
+                return const VerifyEmailView();
               }
-            default:
+            } else {
+              return const LoginView();
+            }
+          default:
             return const CircularProgressIndicator();
-          } 
-        },
-      );
+        }
+      },
+    );
   }
-}//
-
+} //
 
 class NotesView extends StatefulWidget {
   const NotesView({super.key});
@@ -66,6 +75,7 @@ class NotesView extends StatefulWidget {
 }
 
 enum MenuAction { logout }
+
 //////
 class _NotesViewState extends State<NotesView> {
   @override
