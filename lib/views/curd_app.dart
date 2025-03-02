@@ -74,6 +74,24 @@ class _CurdAppState extends State<CurdApp> {
         ),
         backgroundColor: Colors.blue,
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: inputController,
+                decoration: InputDecoration(hintText: "Enter item"),
+              ),
+            ),
+            SizedBox(width: 8),
+            ElevatedButton(
+              onPressed: addItem,
+              child: Text("Add"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
