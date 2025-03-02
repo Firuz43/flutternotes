@@ -84,7 +84,7 @@ class _CurdAppState extends State<CurdApp> {
                 decoration: InputDecoration(hintText: "Enter item"),
               ),
             ),
-            SizedBox(width: 8),
+            SizedBox(width: 8), //
             ElevatedButton(
               onPressed: addItem,
               child: Text("Add"),
