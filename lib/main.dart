@@ -21,7 +21,7 @@ void main() {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue, /////
-        primaryColor: Colors.blue, /////
+        primaryColor: Colors.blue, //////
       ),
       home: const HomePage(),
       routes: {
