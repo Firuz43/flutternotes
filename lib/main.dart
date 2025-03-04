@@ -20,7 +20,7 @@ void main() {
 
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue, /////
+        primarySwatch: Colors.blue, ////////
         primaryColor: Colors.blue, //////
       ),
       home: const HomePage(),
