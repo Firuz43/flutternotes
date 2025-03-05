@@ -9,10 +9,12 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  ///
 
-  late final TextEditingController _email;   // 1. we create email and password variables late means it
-  late final TextEditingController _password; // assigns value later to the variables 
-
+  late final TextEditingController
+      _email; // 1. we create email and password variables late means it
+  late final TextEditingController
+      _password; // assigns value later to the variables
 
   // 2. Then we will create initState that's given to us by statefulwidgett
   @override
@@ -24,7 +26,8 @@ class _LoginViewState extends State<LoginView> {
 
   // 3. Then we will create dispose function that is given to us by statefulwidget ////
   @override
-  void dispose() {//
+  void dispose() {
+    //
     _email.dispose();
     _password.dispose();
     super.dispose();
@@ -32,19 +35,20 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      title: const Text('Login view'),
-      backgroundColor: Colors.blue,
-    ),
-    body: Column(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login view'),
+        backgroundColor: Colors.blue,
+      ),
+      body: Column(
         children: [
           TextField(
             controller: _email, // We are taking them from our textcontroller//
             enableSuggestions: false,
             autocorrect: false,
             keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration( // This is placeholder
+            decoration: const InputDecoration(
+              // This is placeholder
               hintText: "Enter your email",
             ),
           ),
@@ -57,36 +61,39 @@ class _LoginViewState extends State<LoginView> {
               hintText: "Enter your password",
             ),
           ),
-          TextButton(onPressed: () async {
-            
-            final email = _email.text;  // 3. Getting emai and password details on button/
-            final password = _password.text;
-            try {
-              final UserCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                email: email, 
-                password: password,  // 4. Authenticating it with firebase creating user
-              ); 
-              print(UserCredential);
-            } on FirebaseAuthException catch(e) {
-              if(e.code == 'invalid-credential') {//sssss
-                print('user not found');//
-              }else {
-                print("Something else happened");
-                print(e.code);
+          TextButton(
+            onPressed: () async {
+              final email = _email
+                  .text; // 3. Getting emai and password details on button/
+              final password = _password.text;
+              try {
+                final UserCredential =
+                    await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  email: email,
+                  password:
+                      password, // 4. Authenticating it with firebase creating user
+                );
+                print(UserCredential);
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'invalid-credential') {
+                  //sssss
+                  print('user not found'); //
+                } else {
+                  print("Something else happened");
+                  print(e.code);
+                }
+              } catch (e) {
+                print("Something bad happened"); //
+                print(e.runtimeType);
+                print(e);
               }
-            }
-            catch(e) {
-              print("Something bad happened"); //
-              print(e.runtimeType);
-              print(e);
-            }
-    
-          },child: const Text('Login'),
+            },
+            child: const Text('Login'),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(context).pushNamedAndRemoveUntil(
-                '/register/', 
+                '/register/',
                 (route) => false,
               );
             },
@@ -94,7 +101,7 @@ class _LoginViewState extends State<LoginView> {
           )
         ],
       ),
-  );
+    );
   }
 }
 //
