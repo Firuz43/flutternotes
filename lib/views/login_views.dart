@@ -14,7 +14,7 @@ class _LoginViewState extends State<LoginView> {
   late final TextEditingController
       _email; // 1. we create email and password variables late means it
   late final TextEditingController
-      _password; // assigns value later to the variables//
+      _password; // assigns value later to the variables////
 
   // 2. Then we will create initState that's given to us by statefulwidgett
   @override
