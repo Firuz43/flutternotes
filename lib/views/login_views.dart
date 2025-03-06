@@ -48,7 +48,7 @@ class _LoginViewState extends State<LoginView> {
             autocorrect: false,
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(
-              // This is placeholder//
+              // This is placeholder
               hintText: "Enter your email",
             ),
           ),
