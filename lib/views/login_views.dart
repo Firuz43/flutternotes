@@ -37,6 +37,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        //
         title: const Text('Login view'),
         backgroundColor: Colors.blue,
       ),
