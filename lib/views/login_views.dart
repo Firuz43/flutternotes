@@ -21,7 +21,7 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     _email = TextEditingController();
     _password = TextEditingController();
-    super.initState(); //fo
+    super.initState(); //foss
   }
 
   // 3. Then we will create dispose function that is given to us by statefulwidget ////
