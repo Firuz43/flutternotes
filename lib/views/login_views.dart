@@ -99,6 +99,8 @@ class _LoginViewState extends State<LoginView> {
               );
             },
             child: const Text('Not registered yet? register here'),
+
+            ///
           )
         ],
       ),
