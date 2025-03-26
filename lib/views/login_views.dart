@@ -65,7 +65,7 @@ class _LoginViewState extends State<LoginView> {
           TextButton(
             onPressed: () async {
               final email = _email
-                  .text; // 3. Getting emai and password details on button/
+                  .text; // 3. Getting emai and password details on button////
               final password = _password.text;
               try {
                 final UserCredential =
