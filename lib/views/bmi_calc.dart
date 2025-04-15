@@ -60,7 +60,7 @@ class _BmiCalcState extends State<BmiCalc> {
             Text(
               "The BMI Is: $_result",
               style: const TextStyle(fontSize: 18),
-              textAlign: TextAlign.center, ////
+              textAlign: TextAlign.center, ////sadas
             )
           ],
         ),
