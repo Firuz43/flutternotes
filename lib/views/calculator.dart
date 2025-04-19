@@ -19,7 +19,9 @@ class Calculator extends StatelessWidget {
                 Text(
                   "0",
                   style: TextStyle(fontSize: 30),
-                  )
+
+                  ///
+                )
               ],
             ),
           ),
@@ -32,57 +34,45 @@ class Calculator extends StatelessWidget {
                   height: 60,
                   width: 60,
                   child: Center(
-                    child: Text(
-                      "AC",
-                      style: TextStyle(fontSize: 24),
-                      )
-                    ),
+                      child: Text(
+                    "AC",
+                    style: TextStyle(fontSize: 24),
+                  )),
                   decoration: BoxDecoration(
-                    color: Colors.orange,
-                    shape: BoxShape.circle
-                  ),
-                ),
-                Container(
-                  height: 60,
-                  width: 60, 
-                  child: Center(
-                    child: Text(
-                      "+/-",
-                      style: TextStyle(fontSize: 24),
-                      )
-                    ),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    shape: BoxShape.circle
-                  ),
+                      color: Colors.orange, shape: BoxShape.circle),
                 ),
                 Container(
                   height: 60,
                   width: 60,
                   child: Center(
-                    child: Text(
-                      "%",
-                      style: TextStyle(fontSize: 24),
-                      )
-                    ),
+                      child: Text(
+                    "+/-",
+                    style: TextStyle(fontSize: 24),
+                  )),
                   decoration: BoxDecoration(
-                    color: Colors.orange,
-                    shape: BoxShape.circle
-                  ),
+                      color: Colors.orange, shape: BoxShape.circle),
                 ),
                 Container(
                   height: 60,
                   width: 60,
                   child: Center(
-                    child: Text(
-                      "/",
-                      style: TextStyle(fontSize: 24),
-                      )
-                    ),
+                      child: Text(
+                    "%",
+                    style: TextStyle(fontSize: 24),
+                  )),
                   decoration: BoxDecoration(
-                    color: Colors.orange,
-                    shape: BoxShape.circle
-                  ),
+                      color: Colors.orange, shape: BoxShape.circle),
+                ),
+                Container(
+                  height: 60,
+                  width: 60,
+                  child: Center(
+                      child: Text(
+                    "/",
+                    style: TextStyle(fontSize: 24),
+                  )),
+                  decoration: BoxDecoration(
+                      color: Colors.orange, shape: BoxShape.circle),
                 ),
               ],
             ),
