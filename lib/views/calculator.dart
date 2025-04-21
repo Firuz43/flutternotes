@@ -20,7 +20,7 @@ class Calculator extends StatelessWidget {
                   "0",
                   style: TextStyle(fontSize: 30),
 
-                  /////
+                  ///////
                 )
               ],
             ),
