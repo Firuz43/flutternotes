@@ -68,7 +68,7 @@ class Calculator extends StatelessWidget {
                   width: 60,
                   child: Center(
                       child: Text(
-                    "/",
+                    "/", //
                     style: TextStyle(fontSize: 24),
                   )),
                   decoration: BoxDecoration(
