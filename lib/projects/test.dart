@@ -29,10 +29,8 @@ class _TestState extends State<Test> {
       }
     });
 
-    void addData(String name, String surName, int age) {
-
-    }
-  }
+    void addData(String name, String surName, int age) {}
+  } //sds
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +58,7 @@ class _TestState extends State<Test> {
               child: const Text("Add"),
             ),
             SizedBox(height: 16),
-            
             TextField(),
-
             Expanded(
               child: ListView.builder(
                 itemCount: names.length,
