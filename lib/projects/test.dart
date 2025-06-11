@@ -69,7 +69,7 @@ class _TestState extends State<Test> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(names[index]),
+                        Text(names[index]), //
                       ],
                     ),
                   );
