@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
       },
     );
   }
-} //
+} ////
 
 class NotesView extends StatefulWidget {
   const NotesView({super.key});
