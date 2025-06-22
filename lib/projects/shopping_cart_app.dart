@@ -96,7 +96,7 @@ class _ShoppingCartAppState extends State<ShoppingCartApp> {
                       ),
                     );
                   })),
-          Divider(), //
+          Divider(), ////
           Padding(
             padding: const EdgeInsets.all(8),
             child: Text(
