@@ -9,7 +9,6 @@ class ShoppingPractice extends StatefulWidget {
 }
 
 class _ShoppingPracticeState extends State<ShoppingPractice> {
-
   //first we have to make our data models
   final List<Product> producs = [
     Product("Macbook", 23.3),
@@ -20,14 +19,14 @@ class _ShoppingPracticeState extends State<ShoppingPractice> {
   // shopping cart//
   final List<CartItem> cart = [];
 
-
   void addToCart(Product product) {
     setState(() {
-      final index = cart.indexWhere((test) => test.product.name == product.name);
+      final index =
+          cart.indexWhere((test) => test.product.name == product.name);
 
-      if(index != -1) {
+      if (index != -1) {
         cart[index].quantity++;
-      }else {
+      } else {
         cart.add(CartItem(product, 1));
       }
     });
@@ -40,35 +39,38 @@ class _ShoppingPracticeState extends State<ShoppingPractice> {
   }
 
   double calculateTotal() {
-    return cart.fold(0.0, (sum, item) => sum + item.product.price * item.quantity);
+    return cart.fold(
+        0.0, (sum, item) => sum + item.product.price * item.quantity);
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cart", style: TextStyle(color: Colors.white),),
+        title: Text(
+          "Cart",
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.blue,
       ),
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
-              itemCount: producs.length,
-              itemBuilder: (context, index) {
-                final product = producs[index];
-                return ListTile(
-                  title: Text(product.name),
-                  subtitle: Text("\$${product.price.toStringAsFixed(2)}"),
-                  trailing: IconButton(
-                    onPressed: () => addToCart(product), 
-                    icon: Icon(Icons.shopping_cart, color: Colors.green,)
-                  ),
-                );
-              }
-            )
-          ),
+              child: ListView.builder(
+                  itemCount: producs.length,
+                  itemBuilder: (context, index) {
+                    final product = producs[index];
+                    return ListTile(
+                      title: Text(product.name),
+                      subtitle: Text("\$${product.price.toStringAsFixed(2)}"),
+                      trailing: IconButton(
+                          onPressed: () => addToCart(product),
+                          icon: Icon(
+                            Icons.shopping_cart,
+                            color: Colors.green,
+                          )),
+                    );
+                  })),
           Divider(),
           Text(
             "Shopping Cart",
@@ -76,23 +78,24 @@ class _ShoppingPracticeState extends State<ShoppingPractice> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: cart.length,
-              itemBuilder: (context, index) {
-                final cartItem = cart[index];
-                return ListTile(
-                  title: Text("${cartItem.product.name} (x${cartItem.quantity})"),
-                  subtitle: Text(
-                    "\$${(cartItem.quantity * cartItem.product.price).toStringAsFixed(2)}"
-                  ),
-                  trailing: IconButton(
-                    onPressed: () => removeFromCart(cartItem), 
-                    icon: Icon(Icons.delete, color: Colors.red,)
-                  ),
-                );
-              }
-            ),
+                itemCount: cart.length,
+                itemBuilder: (context, index) {
+                  final cartItem = cart[index];
+                  return ListTile(
+                    title: Text(
+                        "${cartItem.product.name} (x${cartItem.quantity})"),
+                    subtitle: Text(
+                        "\$${(cartItem.quantity * cartItem.product.price).toStringAsFixed(2)}"),
+                    trailing: IconButton(
+                        onPressed: () => removeFromCart(cartItem),
+                        icon: Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        )),
+                  );
+                }),
           ),
-          Divider(),
+          Divider(), //
           Padding(
             padding: const EdgeInsets.all(8),
             child: Text(
